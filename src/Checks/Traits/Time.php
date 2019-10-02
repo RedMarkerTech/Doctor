@@ -2,8 +2,6 @@
 
 namespace Doctor\Checks\Traits;
 
-use Carbon\Carbon;
-
 Trait Time
 {
     public $time;
@@ -13,9 +11,9 @@ Trait Time
     public $metricValue;
     public $metricUnit;
 
-    public function setTime(Carbon $time = null)
+    public function setTime(string $time = null)
     {
-        $this->time = $time ?? Carbon::now();
+        $this->time = $time ?? date('Y-m-d H:i:s', time());
     }
 
     public function getTime()

@@ -1,7 +1,6 @@
 <?php
 namespace Doctor;
 
-use Carbon\Carbon;
 use Doctor\Checks\CheckInterface;
 use ZendDiagnostics\Result\ResultInterface;
 use ZendDiagnostics;
@@ -48,7 +47,7 @@ class Detail
     public $output;
 
     /**
-     * @var Carbon
+     * @var string
      */
     public $time;
 

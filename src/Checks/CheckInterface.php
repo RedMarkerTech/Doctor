@@ -3,7 +3,6 @@
 namespace Doctor\Checks;
 
 use ZendDiagnostics\Result\ResultInterface;
-use Carbon\Carbon;
 
 interface CheckInterface
 {
@@ -24,7 +23,7 @@ interface CheckInterface
     /**
      * Return the timestamp describing the instance.
      *
-     * @return Carbon
+     * @return string
      */
     public function getTime();
 }
