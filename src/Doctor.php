@@ -7,6 +7,7 @@ use ZendDiagnostics\Runner\Runner as Examination;
 
 /**
  * Class Doctor
+ *
  * @package Doctor
  */
 class Doctor
@@ -29,7 +30,7 @@ class Doctor
     private $examination;
 
     /**
-     * @var Diagnoses
+     * @var Diagnosis
      */
     public $diagnoses;
 
@@ -40,7 +41,7 @@ class Doctor
     {
         $this->examination = $examination;
 
-        $this->diagnoses = new Diagnoses();
+        $this->diagnoses = new Diagnosis();
     }
 
     /**
@@ -70,7 +71,7 @@ class Doctor
     /**
      * Run the checks on the examination and parse the results into a diagnoses
      *
-     * @return Diagnoses
+     * @return Diagnosis
      * @throws Exception
      */
     public function diagnose()

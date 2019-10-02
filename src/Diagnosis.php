@@ -9,7 +9,7 @@ namespace Doctor;
  *
  * @package Doctor
  */
-class Diagnoses
+class Diagnosis
 {
     /**
      * Status of the Diagnoses.
