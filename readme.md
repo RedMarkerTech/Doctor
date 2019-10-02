@@ -32,9 +32,29 @@ Pass each Check in an array to the Doctor.
 
 ``` bash
 $doctor->addChecks([ 
-    new Doctor\Checks\Database(),
-    new Doctor\Checks\EnvFile()
+    new Doctor\Checks\Database()
 ]);
+
+return $doctor->diagnose()->toArray();
+```
+
+### Output:
+``` bash
+{
+    "status": "pass",
+    "releaseID": "5113e3d0ad8fe3f1ac8393e17432353b194a060f",
+    "serviceID": "34ebdffa9cba",
+    "details": [
+        {
+            "database:connection": {
+                "componentId": "api",
+                "componentType": "datastore",
+                "time": "2019-10-01T06:23:35.817073Z",
+                "status": "pass"
+            }
+        }
+    ]
+}
 ```
 
 ## Output Diagnosis
@@ -42,6 +62,6 @@ $doctor->addChecks([
 Generate the public key:
 
 ``` bash
-Doctor\Diagnoses $diagnoses = $doctor->diagnose();
+
 ```
 
