@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Diagnostics\Checks\Traits;
+namespace Doctor\Checks\Traits;
 
 use Carbon\Carbon;
 

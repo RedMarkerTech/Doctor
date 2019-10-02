@@ -1,12 +1,12 @@
 <?php
-namespace App\Diagnostics\Checks\Laravel;
+namespace Doctor\Checks\Laravel;
 
 use Illuminate\Support\Facades\DB;
-use App\Diagnostics\Checks;
+use Doctor\Checks;
 
 /**
  * Class Migrations
- * @package App\Diagnostics\Checks\Laravel
+ * @package Doctor\Checks\Laravel
  */
 class Migrations extends Checks\Migrations implements Checks\CheckInterface
 {

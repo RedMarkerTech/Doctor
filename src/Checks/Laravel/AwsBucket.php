@@ -1,16 +1,16 @@
 <?php
-namespace App\Diagnostics\Checks\Laravel;
+namespace Doctor\Checks\Laravel;
 
 use Exception;
-use App\Diagnostics\Checks\CheckInterface;
+use Doctor\Checks\CheckInterface;
 use ZendDiagnostics\Result\Success;
 use ZendDiagnostics\Result\Failure;
 use Illuminate\Support\Facades\Storage;
-use App\Diagnostics\Checks\BaseCheck;
+use Doctor\Checks\BaseCheck;
 
 /**
  * Class AwsBucket
- * @package App\Diagnostics\Checks\Laravel
+ * @package Doctor\Checks\Laravel
  */
 class AwsBucket extends BaseCheck implements CheckInterface
 {

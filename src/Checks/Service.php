@@ -1,5 +1,5 @@
 <?php
-namespace App\Diagnostics\Checks;
+namespace Doctor\Checks;
 
 use ZendDiagnostics\Result\Failure;
 use ZendDiagnostics\Result\Success;
@@ -8,7 +8,7 @@ use Exception;
 
 /**
  * Class Service
- * @package App\Diagnostics\Checks
+ * @package Doctor\Checks
  */
 class Service extends BaseCheck implements CheckInterface
 {

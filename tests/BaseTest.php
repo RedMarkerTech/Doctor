@@ -1,5 +1,5 @@
 <?php
-namespace Doctor\Tests;
+namespace Tests;
 
 use PHPUnit\Framework\TestCase as BaseTestCase;
 

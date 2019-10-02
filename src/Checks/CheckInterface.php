@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Diagnostics\Checks;
+namespace Doctor\Checks;
 
 use ZendDiagnostics\Result\ResultInterface;
 use Carbon\Carbon;

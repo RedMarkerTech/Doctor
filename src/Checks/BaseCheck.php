@@ -1,12 +1,12 @@
 <?php
-namespace App\Diagnostics\Checks;
+namespace Doctor\Checks;
 
-use App\Diagnostics\Checks\Traits\Time;
+use Doctor\Checks\Traits\Time;
 use ZendDiagnostics\Check\AbstractCheck;
 
 /**
  * Class BaseCheck
- * @package App\Diagnostics\Checks
+ * @package Doctor\Checks
  */
 abstract class BaseCheck extends AbstractCheck
 {
@@ -19,7 +19,7 @@ abstract class BaseCheck extends AbstractCheck
     const TYPE_SYSTEM = 'system';
 
     /**
-     * @var
+     * @var string
      */
     public $componentId;
 

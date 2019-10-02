@@ -1,11 +1,11 @@
 <?php
-namespace App\Diagnostics\Checks;
+namespace Doctor\Checks;
 
 use ZendDiagnostics\Check\PDOCheck;
 
 /**
  * Class Database
- * @package App\Diagnostics\Checks
+ * @package Doctor\Checks
  */
 class Database extends PDOCheck implements CheckInterface
 {

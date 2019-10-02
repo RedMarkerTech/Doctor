@@ -1,15 +1,18 @@
 <?php
-namespace App\Diagnostics\Checks;
+namespace Doctor\Checks;
 
 use ZendDiagnostics\Result\Failure;
 use ZendDiagnostics\Result\Success;
 
 /**
  * Class VendorFolder
- * @package App\Diagnostics\Checks
+ * @package Doctor\Checks
  */
 class VendorFolder extends BaseCheck implements CheckInterface
 {
+    /**
+     * @var string
+     */
     public $componentType = BaseCheck::TYPE_SYSTEM;
 
     /**
@@ -18,15 +21,15 @@ class VendorFolder extends BaseCheck implements CheckInterface
     protected $label = 'application:vendorFolder';
 
     /**
-     * @var
+     * @var string The location of the expected vendor folder
      */
     private $vendorDirectory;
 
     /**
      * VendorFolder constructor.
-     * @param $vendorDirectory
+     * @param string $vendorDirectory
      */
-    public function __construct($vendorDirectory)
+    public function __construct(string $vendorDirectory)
     {
         $this->vendorDirectory = $vendorDirectory;
 

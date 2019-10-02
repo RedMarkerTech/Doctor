@@ -1,42 +1,87 @@
 <?php
 namespace Doctor;
 
-use ReflectionClass;
-use ZendDiagnostics\Result\ResultInterface;
 use Carbon\Carbon;
+use Doctor\Checks\CheckInterface;
+use ZendDiagnostics\Result\ResultInterface;
 use ZendDiagnostics;
 
+/**
+ * Class Detail
+ * @package Doctor
+ */
 class Detail
 {
-    const STATUS_PASS = 'pass';
-
-    const STATUS_WARNING = 'warn';
-
-    const STATUS_FAIL = 'fail';
-
-    const STATUS_UNKNOWN = 'unknown';
-
-    private $label;
+    /**
+     * @var string
+     */
+    public $label;
 
     /**
      * @var string
      */
-    private $status;
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $componentId;
+
+    /**
+     * @var string
+     */
+    public $componentType;
+
+    /**
+     * @var string
+     */
+    public $metricValue;
+
+    /**
+     * @var string
+     */
+    public $metricUnit;
+
+    /**
+     * @var string
+     */
+    public $output;
+
+    /**
+     * @var Carbon
+     */
+    public $time;
+
+    /**
+     * The attributes that should be visible in arrays.
+     *
+     * @var array
+     */
+    protected $visible = [
+        'status',
+        'componentId',
+        'componentType',
+        'metricValue',
+        'metricUnit',
+        'output',
+        'time',
+    ];
 
     /**
      * Result constructor.
      * @param ResultInterface $result
      * @param $check
      */
-    public function __construct(ResultInterface $result, $check)
+    public function __construct(ResultInterface $result, CheckInterface $check)
     {
         $this->status = $this->getStatus($result);
-
         $this->output = $result->getData();
-
         $this->label = $check->getLabel();
-
-        $this->check = $check;
+        $this->componentId = $check->componentId;
+        $this->componentType = $check->componentType;
+        $this->metricValue = $check->metricValue;
+        $this->metricUnit = $check->metricUnit;
+        $this->time = $check->time;
     }
 
     /**
@@ -47,29 +92,21 @@ class Detail
     {
         switch (get_class($result)) {
             case ZendDiagnostics\Result\Success::class:
-                $status = static::STATUS_PASS;
+                $status = Doctor::STATUS_PASS;
                 break;
             case ZendDiagnostics\Result\Failure::class:
-                $status = static::STATUS_FAIL;
+                $status = Doctor::STATUS_FAIL;
                 $this->output = $result->getData();
                 break;
             case ZendDiagnostics\Result\Warning::class:
-                $status = static::STATUS_WARNING;
+                $status = Doctor::STATUS_WARNING;
                 $this->output = $result->getData();
                 break;
             default :
-                $status = static::STATUS_UNKNOWN;
+                $status = Doctor::STATUS_UNKNOWN;
         }
 
         return $status;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLabel()
-    {
-        return $this->label;
     }
 
     /**
@@ -79,31 +116,11 @@ class Detail
     {
         $result = [];
 
-        if (!empty($this->check->componentId)) {
-            $result['componentId'] = $this->check->componentId;
+        foreach($this->visible as $attribute){
+            if (!empty($this->$attribute)) {
+                $result[$attribute] = $this->$attribute;
+            }
         }
-
-        if (!empty($this->check->componentType)) {
-            $result['componentType'] = $this->check->componentType;
-        }
-
-        if (!empty($this->check->metricValue)) {
-            $result['metricValue'] = $this->check->metricValue;
-        }
-
-        if (!empty($this->check->metricUnit)) {
-            $result['metricUnit'] = $this->check->metricUnit;
-        }
-
-        if (!empty($this->check->time)) {
-            $result['time'] = $this->check->time;
-        }
-
-        if (!empty($this->output)) {
-            $result['output'] = $this->output;
-        }
-
-        $result['status'] = $this->status;
 
         return $result;
     }

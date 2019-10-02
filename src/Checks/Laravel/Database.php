@@ -1,9 +1,9 @@
 <?php
-namespace App\Diagnostics\Checks\Laravel;
+namespace Doctor\Checks\Laravel;
 
-use App\Diagnostics\Checks\CheckInterface;
+use Doctor\Checks\CheckInterface;
 use Illuminate\Support\Facades\DB;
-use App\Diagnostics\Checks;
+use Doctor\Checks;
 
 class Database extends Checks\Database implements CheckInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Diagnostics\Checks;
+namespace Doctor\Checks;
 
 use ZendDiagnostics\Result\Success;
 use ZendDiagnostics\Result\Failure;
@@ -10,7 +10,7 @@ use Xenolope\Quahog\Client;
 
 /**
  * Class Gearman
- * @package App\Diagnostics\Checks
+ * @package Doctor\Checks
  */
 class Gearman extends BaseCheck implements CheckInterface
 {

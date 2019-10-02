@@ -1,5 +1,5 @@
 <?php
-namespace App\Diagnostics\Checks;
+namespace Doctor\Checks;
 
 use ZendDiagnostics\Check\CpuPerformance as CpuPerformanceAlias;
 use ZendDiagnostics\Result\Failure;
@@ -8,7 +8,7 @@ use ZendDiagnostics\Result\Warning;
 
 /**
  * Class CpuPerformance
- * @package App\Diagnostics\Checks
+ * @package Doctor\Checks
  */
 class CpuPerformance extends CpuPerformanceAlias implements CheckInterface
 {

@@ -1,11 +1,11 @@
 <?php
-namespace App\Diagnostics\Checks;
+namespace Doctor\Checks;
 
 use PDO;
 use ZendDiagnostics\Result\Failure;
 use ZendDiagnostics\Result\Success;
 use ZendDiagnostics\Result\Warning;
-use App\Diagnostics\Checks;
+use Doctor\Checks;
 
 /**
  * Validate Migrations are up to date
@@ -27,11 +27,6 @@ class Migrations extends Checks\BaseCheck implements Checks\CheckInterface
     private $migrationDirectory;
 
     /**
-     * @var PDO
-     */
-    private $db;
-
-    /**
      * @param string $host
      * @param string $database
      * @param string $username
@@ -47,8 +42,6 @@ class Migrations extends Checks\BaseCheck implements Checks\CheckInterface
         $this->password = $password;
 
         $this->options = [];
-
-
 
         $this->migrationDirectory = $migrationDirectory;
 
