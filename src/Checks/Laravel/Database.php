@@ -1,9 +1,9 @@
 <?php
 namespace RedMarkerTech\Doctor\Checks\Laravel;
 
-use Doctor\Checks\CheckInterface;
+use RedMarkerTech\Doctor\Checks\CheckInterface;
 use Illuminate\Support\Facades\DB;
-use Doctor\Checks;
+use RedMarkerTech\Doctor\Checks;
 
 class Database extends Checks\Database implements CheckInterface
 {

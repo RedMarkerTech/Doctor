@@ -5,7 +5,7 @@ use PDO;
 use ZendDiagnostics\Result\Failure;
 use ZendDiagnostics\Result\Success;
 use ZendDiagnostics\Result\Warning;
-use Doctor\Checks;
+use RedMarkerTech\Doctor\Checks;
 
 /**
  * Validate Migrations are up to date

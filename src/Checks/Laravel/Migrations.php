@@ -2,7 +2,7 @@
 namespace RedMarkerTech\Doctor\Checks\Laravel;
 
 use Illuminate\Support\Facades\DB;
-use Doctor\Checks;
+use RedMarkerTech\Doctor\Checks;
 
 /**
  * Class Migrations
