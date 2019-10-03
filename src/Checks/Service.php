@@ -29,7 +29,7 @@ class Service extends BaseCheck implements CheckInterface
     /**
      * @var array
      */
-    private $expectedResponses = [];
+    private $seeInJson = [];
 
     /**
      * @var array
@@ -71,11 +71,19 @@ class Service extends BaseCheck implements CheckInterface
     }
 
     /**
-     * @param $response
+     * @param array $seeInJson
      */
-    public function setExpectedResponses($response)
+    public function setSeeInJson($seeInJson)
     {
-        $this->expectedResponses = $response;
+        $this->seeInJson = $seeInJson;
+    }
+
+    /**
+     * @param array $seeInResponse
+     */
+    public function setSeeInResponse(array $seeInResponse): void
+    {
+        $this->seeInResponse = $seeInResponse;
     }
 
     /**
@@ -126,7 +134,7 @@ class Service extends BaseCheck implements CheckInterface
 
         $response = json_decode($response);
 
-        foreach($this->expectedResponses as $key => $value){
+        foreach($this->seeInJson as $key => $value){
 
             if(is_null($value)) {
                 throw new Exception("Expected value can't be null");
@@ -140,14 +148,6 @@ class Service extends BaseCheck implements CheckInterface
                 throw new Exception($response->$key . ' does not equal ' . $value);
             }
         }
-    }
-
-    /**
-     * @param array $seeInResponse
-     */
-    public function setSeeInResponse(array $seeInResponse): void
-    {
-        $this->seeInResponse = $seeInResponse;
     }
 }
 
