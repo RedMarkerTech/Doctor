@@ -1,7 +1,7 @@
 <?php
-namespace RedMarkerTech\Doctor;
+namespace RedMarker\Doctor;
 
-use RedMarkerTech\Doctor\Checks\CheckInterface;
+use RedMarker\Doctor\Checks\CheckInterface;
 use ZendDiagnostics\Result\ResultInterface;
 use ZendDiagnostics;
 

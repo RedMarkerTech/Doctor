@@ -1,6 +1,6 @@
 <?php
 
-namespace RedMarkerTech\Doctor\Checks;
+namespace RedMarker\Doctor\Checks;
 
 use ZendDiagnostics\Check\RabbitMQ;
 

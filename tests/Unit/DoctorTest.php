@@ -1,11 +1,11 @@
 <?php
-namespace RedMarkerTech\Tests\Unit;
+namespace RedMarker\Tests\Unit;
 
-use RedMarkerTech\Tests\BaseTest;
+use RedMarker\Tests\BaseTest;
 use ZendDiagnostics\Runner\Runner;
-use RedMarkerTech\Doctor\Doctor;
+use RedMarker\Doctor\Doctor;
 use Exception;
-use RedMarkerTech\Doctor\Checks;
+use RedMarker\Doctor\Checks;
 
 
 class DoctorTest extends BaseTest

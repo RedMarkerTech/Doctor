@@ -1,11 +1,11 @@
 <?php
-namespace RedMarkerTech\Doctor\Checks;
+namespace RedMarker\Doctor\Checks;
 
 use PDO;
 use ZendDiagnostics\Result\Failure;
 use ZendDiagnostics\Result\Success;
 use ZendDiagnostics\Result\Warning;
-use RedMarkerTech\Doctor\Checks;
+use RedMarker\Doctor\Checks;
 
 /**
  * Validate Migrations are up to date

@@ -19,8 +19,8 @@
     },
     "autoload": {
         "psr-4": {
-            "RedMarkerTech\\Doctor\\": "src/",
-            "RedMarkerTech\\Tests\\": "tests/"
+            "RedMarker\\Doctor\\": "src/",
+            "RedMarker\\Tests\\": "tests/"
         }
     }
 }

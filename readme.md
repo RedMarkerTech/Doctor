@@ -9,10 +9,10 @@ This is a php-based package for performing health status checks that follow the 
 ## Doctor Usage
 
 Create an instance of a Doctor class using a new Examination(). 
-Passing RedMarkerTech\Doctor\Checks\CheckInterface objects to the Doctor will add them to the Doctors examination attribute.
+Passing RedMarker\Doctor\Checks\CheckInterface objects to the Doctor will add them to the Doctors examination attribute.
 
 
-Both the releaseId and serviceId must be set on the RedMarkerTech\Doctor\Doctor() .
+Both the releaseId and serviceId must be set on the RedMarker\Doctor\Doctor() .
 
 The releaseId should be the current git commit hash.
 
@@ -21,7 +21,7 @@ The serviceId should be the containers id.
 ``` bash
 use ZendDiagnostics\Runner\Runner as Examination;
 
-$doctor = new RedMarkerTech\Doctor\Doctor(Examination $examination);
+$doctor = new RedMarker\Doctor\Doctor(Examination $examination);
 $doctor->setReleaseId($releaseId);
 $doctor->setServiceId($serviceId);
 ```

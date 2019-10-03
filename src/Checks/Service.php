@@ -1,5 +1,5 @@
 <?php
-namespace RedMarkerTech\Doctor\Checks;
+namespace RedMarker\Doctor\Checks;
 
 use ZendDiagnostics\Result\Failure;
 use ZendDiagnostics\Result\Success;

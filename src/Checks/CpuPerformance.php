@@ -1,5 +1,5 @@
 <?php
-namespace RedMarkerTech\Doctor\Checks;
+namespace RedMarker\Doctor\Checks;
 
 use ZendDiagnostics\Check\CpuPerformance as CpuPerformanceAlias;
 use ZendDiagnostics\Result\Failure;

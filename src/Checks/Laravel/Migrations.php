@@ -1,8 +1,8 @@
 <?php
-namespace RedMarkerTech\Doctor\Checks\Laravel;
+namespace RedMarker\Doctor\Checks\Laravel;
 
 use Illuminate\Support\Facades\DB;
-use RedMarkerTech\Doctor\Checks;
+use RedMarker\Doctor\Checks;
 
 /**
  * Class Migrations

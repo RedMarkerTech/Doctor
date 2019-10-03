@@ -1,12 +1,12 @@
 <?php
-namespace RedMarkerTech\Doctor\Checks\Laravel;
+namespace RedMarker\Doctor\Checks\Laravel;
 
 use Exception;
-use RedMarkerTech\Doctor\Checks\CheckInterface;
+use RedMarker\Doctor\Checks\CheckInterface;
 use ZendDiagnostics\Result\Success;
 use ZendDiagnostics\Result\Failure;
 use Illuminate\Support\Facades\Storage;
-use RedMarkerTech\Doctor\Checks\BaseCheck;
+use RedMarker\Doctor\Checks\BaseCheck;
 
 /**
  * Class AwsBucket
