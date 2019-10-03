@@ -1,5 +1,5 @@
 <?php
-namespace Doctor\Checks\Laravel;
+namespace RedMarkerTech\Doctor\Checks\Laravel;
 
 use Illuminate\Support\Facades\DB;
 use Doctor\Checks;

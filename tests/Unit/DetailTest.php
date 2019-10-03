@@ -1,12 +1,12 @@
 <?php
-namespace Tests\Unit;
+namespace RedMarkerTech\Tests\Unit;
 
-use Tests\BaseTest;
+use RedMarkerTech\Tests\BaseTest;
 use ZendDiagnostics\Result\Failure;
 use ZendDiagnostics\Result\Success;
-use Doctor\Checks;
-use Doctor\Detail;
-use Doctor\Doctor;
+use RedMarkerTech\Doctor\Checks;
+use RedMarkerTech\Doctor\Detail;
+use RedMarkerTech\Doctor\Doctor;
 
 class DetailTest extends BaseTest
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Doctor;
+namespace RedMarkerTech\Doctor;
 
 use Exception;
 use ZendDiagnostics\Runner\Runner as Examination;

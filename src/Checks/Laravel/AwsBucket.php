@@ -1,5 +1,5 @@
 <?php
-namespace Doctor\Checks\Laravel;
+namespace RedMarkerTech\Doctor\Checks\Laravel;
 
 use Exception;
 use Doctor\Checks\CheckInterface;

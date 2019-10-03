@@ -1,6 +1,6 @@
 <?php
 
-namespace Doctor\Checks\Traits;
+namespace RedMarkerTech\Doctor\Checks\Traits;
 
 Trait Time
 {

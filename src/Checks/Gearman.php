@@ -1,6 +1,6 @@
 <?php
 
-namespace Doctor\Checks;
+namespace RedMarkerTech\Doctor\Checks;
 
 use ZendDiagnostics\Result\Success;
 use ZendDiagnostics\Result\Failure;

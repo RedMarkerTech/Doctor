@@ -1,5 +1,5 @@
 <?php
-namespace Doctor;
+namespace RedMarkerTech\Doctor;
 
 
 /**

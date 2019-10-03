@@ -1,7 +1,7 @@
 <?php
-namespace Doctor\Checks;
+namespace RedMarkerTech\Doctor\Checks;
 
-use Doctor\Checks\Traits\Time;
+use RedMarkerTech\Doctor\Checks\Traits\Time;
 use ZendDiagnostics\Check\AbstractCheck;
 
 /**
