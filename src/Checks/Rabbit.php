@@ -10,16 +10,11 @@ use ZendDiagnostics\Check\RabbitMQ;
 class Rabbit extends RabbitMQ implements CheckInterface
 {
     use Traits\Time;
-    
-    /**
-     * @var string
-     */
-    protected $label = 'queue:connection';
 
     /**
      * @var string
      */
-    public $componentId = 'rabbit';
+    protected $label = 'queue:connection';
 
     /**
      * @param array $config
@@ -29,6 +24,8 @@ class Rabbit extends RabbitMQ implements CheckInterface
         parent::__construct($config['host'], $config['port'], $config['user'], $config['password'], $config['vhost']);
 
         $this->componentType = BaseCheck::TYPE_COMPONENT;
+
+        $this->componentId = 'rabbit';
 
         $this->setTime();
     }
