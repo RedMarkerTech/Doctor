@@ -10,9 +10,7 @@ use ZendDiagnostics\Check\RabbitMQ;
 class Rabbit extends RabbitMQ implements CheckInterface
 {
     use Traits\Time;
-
-    public $componentType = BaseCheck::TYPE_COMPONENT;
-
+    
     /**
      * @var string
      */
@@ -29,6 +27,8 @@ class Rabbit extends RabbitMQ implements CheckInterface
     public function __construct($config)
     {
         parent::__construct($config['host'], $config['port'], $config['user'], $config['password'], $config['vhost']);
+
+        $this->componentType = BaseCheck::TYPE_COMPONENT;
 
         $this->setTime();
     }
