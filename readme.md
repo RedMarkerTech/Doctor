@@ -55,13 +55,3 @@ return $doctor->diagnose()->toArray();
         }
     ]
 }
-```
-
-## Output Diagnosis
-
-Generate the public key:
-
-``` bash
-
-```
-
