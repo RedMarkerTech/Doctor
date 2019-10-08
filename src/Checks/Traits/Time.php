@@ -6,7 +6,6 @@ Trait Time
 {
     public $time;
     public $componentId;
-    public $componentType;
     public $output;
     public $metricValue;
     public $metricUnit;
