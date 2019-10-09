@@ -7,7 +7,7 @@ use RedMarker\Doctor\Checks;
  * Class Service
  * @package Doctor\Checks
  */
-class Service extends Checks\Service implements Checks\CheckInterface
+class HttpResponse extends Checks\HttpResponse implements Checks\CheckInterface
 {
     /**
      * Service constructor.

@@ -1,10 +1,16 @@
 # Red Marker Php Health Status
 
+This is a php-based package for performing health status checks that follow the format found  at https://tools.ietf.org/id/draft-inadarei-api-health-check-01.html
+
 "I need a doctor" - Dr. Dre
 
-Just like Dre, Red Marker also needs a Doctor.
+Just like Dre, you might need a Doctor too.
 
-This is a php-based package for performing health status checks that follow the format found  at https://tools.ietf.org/id/draft-inadarei-api-health-check-01.html
+## Installation
+
+``` bash
+composer require redmarker/doctor
+```
 
 ## Doctor Usage
 

@@ -10,7 +10,7 @@ use Exception;
  * Class Service
  * @package Doctor\Checks
  */
-class Service extends BaseCheck implements CheckInterface
+class HttpResponse extends BaseCheck implements CheckInterface
 {
     public $componentType = BaseCheck::TYPE_COMPONENT;
 
