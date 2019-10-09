@@ -1,6 +1,6 @@
 <?php
 
-namespace RedMarker\Doctor\Providers\Laravel\HealthProvider;
+namespace RedMarker\Doctor\Providers\Laravel;
 
 use Illuminate\Support\ServiceProvider;
 use RedMarker\Doctor\Doctor;
