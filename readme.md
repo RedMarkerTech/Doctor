@@ -35,7 +35,7 @@ $doctor->addChecks([
     new Doctor\Checks\Database()
 ]);
 
-return $doctor->diagnose()->toArray();
+return $doctor->diagnose();
 ```
 
 ### Output:
