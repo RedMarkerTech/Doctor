@@ -84,7 +84,16 @@ class Migrations extends Checks\BaseCheck implements Checks\CheckInterface
             return false;
         }
 
-        return str_replace('.php', '', $migrationFiles[0]);
+        foreach($migrationFiles as $file)
+        {
+            $extension = substr($file, -4);
+
+            if ($extension === '.php'){
+                return str_replace('.php', '', $file);
+            }
+        }
+
+        return false;
     }
 
     /**
