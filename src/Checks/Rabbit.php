@@ -50,7 +50,7 @@ class Rabbit extends BaseCheck implements CheckInterface
             return new Failure('PhpAmqpLib is not installed');
         }
         try {
-            $isSsl = isset($this->config['ssl_options']);
+            $isSsl = !empty($this->config['ssl_options']);
             switch ($isSsl)
             {
                 case false:
