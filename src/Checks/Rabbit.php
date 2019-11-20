@@ -2,12 +2,15 @@
 
 namespace RedMarker\Doctor\Checks;
 
-use ZendDiagnostics\Check\RabbitMQ;
+use PhpAmqpLib\Connection\AMQPConnection;
+use PhpAmqpLib\Connection\AMQPSSLConnection;
+use ZendDiagnostics\Result\Failure;
+use ZendDiagnostics\Result\Success;
 
 /**
  * Validate that a RabbitMQ service is running
  */
-class Rabbit extends RabbitMQ implements CheckInterface
+class Rabbit extends BaseCheck implements CheckInterface
 {
     use Traits\Time;
 
@@ -16,17 +19,75 @@ class Rabbit extends RabbitMQ implements CheckInterface
      */
     protected $label = 'queue:connection';
 
+    protected $config;
+
     /**
      * @param array $config
      */
     public function __construct($config)
     {
-        parent::__construct($config['host'], $config['port'], $config['user'], $config['password'], $config['vhost']);
+
+        parent::__construct();
+
+        $this->config = $config;
 
         $this->componentType = BaseCheck::TYPE_COMPONENT;
 
         $this->componentId = 'rabbit';
 
         $this->setTime();
+    }
+
+    /**
+     * Perform the check
+     *
+     * @see \ZendDiagnostics\Check\CheckInterface::check()
+     * @return Failure|Success
+     */
+    public function check()
+    {
+        if (! class_exists('PhpAmqpLib\Connection\AMQPConnection')) {
+            return new Failure('PhpAmqpLib is not installed');
+        }
+        try {
+            $isSsl = isset($this->config['ssl_options']);
+            switch ($isSsl)
+            {
+                case false:
+                    $conn = new AMQPConnection(
+                        $this->config['host'],
+                        $this->config['port'],
+                        $this->config['user'],
+                        $this->config['password'],
+                        $this->config['vhost']
+                    );
+                    break;
+                case true:
+                    $this->componentId = 'rabbit-tls';
+                    $conn = new AMQPSSLConnection(
+                        $this->config['host'],
+                        $this->config['port'],
+                        $this->config['user'],
+                        $this->config['password'],
+                        $this->config['vhost'],
+                        $this->config['ssl_options']
+                    );
+                    break;
+            }
+            $conn->channel();
+        } catch (\Exception $e) {
+            return new Failure('Could not connect to specified RabbitMQ', $e->getMessage());
+        }
+        return new Success();
+    }
+
+    /**
+     * Return a label describing this test instance.
+     *
+     * @return string
+     */
+    public function getLabel()
+    {
+        return 'rabbit-mq';
     }
 }
