@@ -18,6 +18,6 @@ class Rabbit extends Checks\Rabbit implements Checks\CheckInterface
 
         parent::__construct($config);
 
-        $this->componentId = $connection;
+        $this->componentId .= '-'.$connection;
     }
 }
