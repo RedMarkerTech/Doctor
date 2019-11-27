@@ -27,8 +27,6 @@ class Rabbit extends BaseCheck implements CheckInterface
     public function __construct($config)
     {
 
-        parent::__construct();
-
         $this->config = $config;
 
         $this->componentType = BaseCheck::TYPE_COMPONENT;
@@ -36,6 +34,8 @@ class Rabbit extends BaseCheck implements CheckInterface
         $this->componentId = 'rabbit';
 
         $this->setTime();
+
+        parent::__construct();
     }
 
     /**
@@ -63,7 +63,7 @@ class Rabbit extends BaseCheck implements CheckInterface
                     );
                     break;
                 case true:
-                    $this->componentId = 'rabbit-tls';
+                    $this->componentId .= '-ssl';
                     $conn = new AMQPSSLConnection(
                         $this->config['host'],
                         $this->config['port'],
