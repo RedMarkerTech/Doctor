@@ -14,8 +14,6 @@ class Migrations extends Checks\BaseCheck implements Checks\CheckInterface
 {
     public $componentType = BaseCheck::TYPE_DATASTORE;
 
-    const QUERY = "SELECT migration FROM migrations order by id desc LIMIT 1";
-
     /**
      * @var string
      */
@@ -53,31 +51,38 @@ class Migrations extends Checks\BaseCheck implements Checks\CheckInterface
      */
     public function check()
     {
-        $latestMigrationFile = $this->getLatestMigrationFile();
+        $files = $this->getMigrationFiles();
 
-        if(!$latestMigrationFile){
+        if(!$files){
 
             return new Warning(null, 'No migration files found.');
         }
 
-        $latestMigrationDbRecord = $this->getLatestMigrationDbRecord();
+        $dbMigrationsCount = $this->getMatchingMigrationRecordsCount($files);
 
-        if($latestMigrationDbRecord === $latestMigrationFile){
+        $fileCount = (string) count($files);
+
+        if($fileCount === $dbMigrationsCount){
 
             return new Success();
         }
 
         return new Failure(null, [
-            'file' => $latestMigrationFile,
-            'record' => $latestMigrationDbRecord
+            'file count' => $fileCount,
+            'db record count' => $dbMigrationsCount
         ]);
     }
 
     /**
-     * @return bool|mixed
+     * Gets an array of the migration file names
+     * the .php extension is removed from the file name
+     *
+     * @return array
      */
-    private function getLatestMigrationFile()
+    private function getMigrationFiles()
     {
+        $migrations = [];
+
         $migrationFiles = scandir($this->migrationDirectory, SCANDIR_SORT_DESCENDING);
 
         if(empty($migrationFiles)){
@@ -89,27 +94,30 @@ class Migrations extends Checks\BaseCheck implements Checks\CheckInterface
             $extension = substr($file, -4);
 
             if ($extension === '.php'){
-                return str_replace('.php', '', $file);
+                $migrations[] = str_replace('.php', '', $file);
             }
         }
 
-        return false;
+        return $migrations;
     }
 
     /**
      * @return string
      */
-    private function getLatestMigrationDbRecord()
+    private function getMatchingMigrationRecordsCount($files = [])
     {
         $db = new PDO($this->dsn, $this->username, $this->password, $this->options);
 
-        $statement = $db->prepare(static::QUERY);
+        $in  = str_repeat('?,', count($files) - 1) . '?';
 
-        $statement->execute();
+        $query = "SELECT count(*) as count FROM migrations where migration in ($in)";
+
+        $statement = $db->prepare($query);
+
+        $statement->execute($files);
 
         $record = $statement->fetch();
 
-        return $record['migration'];
+        return $record['count'];
     }
 }
-
