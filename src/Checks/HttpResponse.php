@@ -109,7 +109,7 @@ class HttpResponse extends BaseCheck implements CheckInterface
         try {
             $this->checkExpectedResponses($response);
         } catch (Exception $e) {
-            return new Failure(null, $e->getMessage());
+            return new Failure(null, 'Exception Code: ' . $e->getCode());
         }
 
         return new Success();
