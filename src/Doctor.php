@@ -45,18 +45,24 @@ class Doctor
     }
 
     /**
-     * @param string $serviceId
+     * @param string|null $serviceId
      */
-    public function setServiceId(string $serviceId): void
+    public function setServiceId($serviceId): void
     {
+        if (!$serviceId) {
+            $serviceId = 'not found';
+        }
         $this->diagnoses->serviceId = $serviceId;
     }
 
     /**
-     * @param string $releaseId
+     * @param string|null $releaseId
      */
-    public function setReleaseId(string $releaseId)
+    public function setReleaseId($releaseId)
     {
+        if (!$releaseId) {
+            $releaseId = 'not found';
+        }
         $this->diagnoses->releaseId = $releaseId;
     }
 
