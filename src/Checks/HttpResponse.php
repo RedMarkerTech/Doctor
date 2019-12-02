@@ -91,6 +91,8 @@ class HttpResponse extends BaseCheck implements CheckInterface
      */
     public function check()
     {
+        $this->headers['timeout'] = 5;
+
         try {
             $response = $this->client->get($this->service, $this->headers);
         } catch ( Exception $e) {
